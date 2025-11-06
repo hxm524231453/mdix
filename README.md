@@ -10,9 +10,13 @@ In Ethernet networking, devices use different port types based on their roles:
 
 MDI also known as an uplink port, is an Ethernet port connection typically used on the NIC (Network Interface Card) or Integrated NIC port on a PC. The transmission signals on a NIC must go to receiving signals on the hub or network switch, so the latter devices have their transmission and receiving signals switched in a configuration known as MDIX – the “X” here represents “crossover”, indicating the reverse of input and output signals.
 
+![registry](./MDI.png)
+
 📜MDIX (Medium Dependent Interface with Crossover) ports are common on network infrastructure equipment such as hubs and switches. They invert the pin assignments—transmitting on pins 3 and 6 and receiving on pins 1 and 2. 
 
 MDIX is an 8P8C port connection often found on a computer, router, hub, or network switch. Since MDIX is the crossover version of the MDI port, the pins 1 & 2 (transmitting) on an MDI device go to pins 1 & 2 (receiving) on an MDIX device via a straight through cable. Similarly, pins 3 & 6 (receiving) on an MDI device go to pins 3 & 6 (transmitting) on an MDIX device. In this case, the MDIX port eliminates the need for a crossover twisted pair cabling.
+
+![registry](./MDIX.png)
 
 Thanks to this design, connecting an MDI port directly to an MDIX port requires a straight-through Ethernet cable, preserving proper alignment of transmit and receive pairs. Conversely, linking two identical ports (MDI-to-MDI or MDIX-to-MDIX) requires a crossover cable to swap those signals correctly.
 
@@ -29,6 +33,14 @@ In general, end stations like PCs or workstations use an MDI interface, whereas 
 
 ## 📊 What About Ethernet Auto-MDI/MDIX?
 As aforementioned, an Ethernet crossover cable is adopted to connect two ports of the same configuration (i.e. MDI-to-MDI or MDIX-to-MDIX). However, it may generate some confusion and inconveniences when deploying two different kinds of Ethernet cables. The auto-MDI/MDIX technology is developed to fix this problem: It automatically switches between MDI and MDIX as required. Auto MDI/MDIX ports on newer device interfaces detect if the connection requires a crossover, then automatically choose the MDI or MDIX configuration to properly match the other end of the link. In this case, it doesn’t matter if you using straight through or crossover cables. The chart below shows cable types for MDI/MDIX and auto-MDIX.
+
+|    Setting    |                 MDI/MDIX Device Type                         |                                                             |
+| :-----------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+|  PC or other MDI device  |    Switch, hub, or other MDIX device     |  |
+|  MDI  | Crossover cable |                             Straight-through cable                               |
+| MDIX  | Straight-through cable | Crossover cable |
+| Auto-MDI/MDIX |     Either crossover or straight-through cable     |    |
+
 
 
 ## 🚀 How Auto-MDI/MDIX Works
